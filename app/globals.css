@@ -196,9 +196,9 @@ html.dark {
 }
 
 .display {
-  font-size: clamp(3.5rem, 8vw, 7.25rem);
-  line-height: 0.86;
-  letter-spacing: -0.055em;
+  font-size: clamp(3rem, 7vw, 6.5rem);
+  line-height: 0.96;
+  letter-spacing: -0.04em;
   font-weight: 600;
 }
 
@@ -386,14 +386,337 @@ details summary::-webkit-details-marker {
   top: 0.75rem;
 }
 
-.hero-glow {
+.iphone {
+  width: 320px;
+  filter: drop-shadow(0 1px 2px rgb(17 20 38 / 6%)) drop-shadow(0 28px 60px rgb(17 20 38 / 18%));
+}
+
+.iphone-metal {
+  padding: 7px;
+  border-radius: 54px;
+  background: linear-gradient(160deg, #f4f4f6 0%, #b9bcc4 16%, #6d7078 48%, #2a2c32 100%);
+  box-shadow:
+    inset 0 1px 0 rgb(255 255 255 / 80%),
+    inset 0 -1px 0 rgb(0 0 0 / 35%);
+}
+
+.iphone-screen {
+  position: relative;
+  display: flex;
+  height: 652px;
+  flex-direction: column;
+  overflow: hidden;
+  border-radius: 46px;
+  background: #f7f7f4;
+  color: #111426;
+}
+
+.ios-status {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 54px;
+  padding: 14px 22px 0;
+  font-size: 15px;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+}
+
+.ios-glyphs {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.ios-island {
   position: absolute;
-  top: 4rem;
-  right: 6%;
-  width: min(520px, 50vw);
-  height: 520px;
-  background: radial-gradient(circle, rgb(199 240 222 / 85%), transparent 68%);
-  pointer-events: none;
+  top: 11px;
+  left: 50%;
+  z-index: 2;
+  width: 98px;
+  height: 32px;
+  transform: translateX(-50%);
+  border-radius: 999px;
+  background: #0a0a0c;
+}
+
+.ios-body {
+  position: relative;
+  min-height: 0;
+  flex: 1;
+}
+
+.ios-home {
+  position: absolute;
+  bottom: 8px;
+  left: 50%;
+  width: 120px;
+  height: 5px;
+  transform: translateX(-50%);
+  border-radius: 999px;
+  background: #111426;
+  opacity: 0.85;
+}
+
+.ios-app {
+  display: flex;
+  height: 100%;
+  flex-direction: column;
+  padding: 0 16px 28px;
+  background: #f7f7f4;
+  color: #111426;
+}
+
+.ios-nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 17px;
+  font-weight: 600;
+}
+
+.ios-kicker {
+  margin-top: 18px;
+  font-family: var(--font-mono), ui-monospace, monospace;
+  font-size: 11px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: #5b6172;
+}
+
+.ios-title {
+  margin-top: 6px;
+  font-size: 28px;
+  font-weight: 600;
+  letter-spacing: -0.04em;
+  line-height: 1.05;
+}
+
+.ios-sub,
+.ios-due,
+.ios-note {
+  margin-top: 6px;
+  font-size: 15px;
+  line-height: 1.35;
+  color: #5b6172;
+}
+
+.ios-lines {
+  margin-top: 18px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.ios-lines li,
+.q-line {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-radius: 14px;
+  background: white;
+  padding: 10px 12px;
+  box-shadow: inset 0 1px 0 rgb(255 255 255 / 80%), 0 1px 2px rgb(17 20 38 / 6%);
+  font-size: 15px;
+}
+
+.ios-lines strong {
+  display: block;
+  font-weight: 600;
+}
+
+.ios-lines em {
+  font-style: normal;
+  font-size: 13px;
+  color: #5b6172;
+}
+
+.ios-lines b,
+.ios-totals span:last-child,
+.ios-amount {
+  font-variant-numeric: tabular-nums;
+  font-weight: 600;
+}
+
+.ios-totals {
+  margin-top: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  border-top: 1px solid rgb(17 20 38 / 10%);
+  padding-top: 12px;
+  font-size: 15px;
+}
+
+.ios-totals p,
+.crop-card p {
+  display: flex;
+  justify-content: space-between;
+}
+
+.ios-grand,
+.crop-total {
+  margin-top: 4px;
+  font-size: 20px;
+  font-weight: 600;
+}
+
+.ios-sign {
+  margin-top: 28px;
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.typed-name {
+  flex: 1;
+  border-bottom: 1px solid rgb(17 20 38 / 18%);
+  padding-bottom: 6px;
+  font-size: 22px;
+  font-weight: 600;
+  letter-spacing: -0.03em;
+}
+
+.yes-mark {
+  height: 64px;
+  width: auto;
+}
+
+.ios-amount {
+  margin-top: 28px;
+  font-size: 40px;
+  letter-spacing: -0.04em;
+}
+
+.ios-app .stamp {
+  margin-top: auto;
+  align-self: flex-end;
+}
+
+.hero-tilt {
+  transform: perspective(1400px) rotateY(-7deg) rotateX(4deg);
+}
+
+.hero-float {
+  position: absolute;
+  z-index: 3;
+  border-radius: 18px;
+  background: white;
+  color: #111426;
+  box-shadow:
+    inset 0 1px 0 rgb(255 255 255 / 90%),
+    0 1px 2px rgb(17 20 38 / 6%),
+    0 24px 60px -12px rgb(17 20 38 / 18%);
+}
+
+.hero-push {
+  top: 0;
+  left: -2%;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 12px 14px;
+}
+
+.hero-push strong,
+.hero-push em {
+  display: block;
+}
+
+.hero-push em {
+  font-style: normal;
+  font-size: 12px;
+  color: #5b6172;
+}
+
+.hero-push-mark {
+  width: 8px;
+  height: 8px;
+  border-radius: 999px;
+  background: #12805c;
+}
+
+.hero-chip {
+  right: 0;
+  bottom: 16%;
+  padding: 10px 14px;
+  font-family: var(--font-mono), ui-monospace, monospace;
+  font-size: 12px;
+}
+
+.hero-line {
+  left: -4%;
+  bottom: 10%;
+  display: flex;
+  min-width: 210px;
+  justify-content: space-between;
+  gap: 24px;
+  padding: 14px 16px;
+  font-size: 15px;
+}
+
+.hero-line b {
+  font-variant-numeric: tabular-nums;
+}
+
+.crop-card {
+  border-radius: 28px;
+  background: white;
+  padding: 36px 40px;
+  color: #111426;
+  box-shadow:
+    inset 0 1px 0 rgb(255 255 255 / 90%),
+    0 1px 2px rgb(17 20 38 / 6%),
+    0 24px 60px -12px rgb(17 20 38 / 16%);
+}
+
+.crop-card p + p {
+  margin-top: 8px;
+}
+
+.crop-paid {
+  display: flex;
+  min-height: 280px;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.share-pill {
+  position: absolute;
+  top: 22%;
+  left: 58%;
+  z-index: 4;
+  border-radius: 999px;
+  background: white;
+  padding: 10px 14px;
+  color: #111426;
+  font-family: var(--font-mono), ui-monospace, monospace;
+  font-size: 12px;
+  box-shadow: 0 16px 40px -18px rgb(0 0 0 / 55%);
+}
+
+.story-pin .layer-yes,
+.story-pin .layer-invoice,
+.story-pin .share-pill {
+  opacity: 0;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-tilt {
+    transform: none;
+  }
+}
+
+@media (max-width: 1023px) {
+  .hero-float,
+  .share-pill {
+    display: none;
+  }
+
+  .hero-tilt {
+    transform: none;
+  }
 }
 
 .hero-stage-art {

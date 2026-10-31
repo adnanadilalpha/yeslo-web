@@ -1,5 +1,5 @@
 import { Comparison } from "@/components/marketing/comparison";
-import { Facts } from "@/components/marketing/facts";
+import { Features } from "@/components/marketing/features";
 import { Faq } from "@/components/marketing/faq";
 import { Hero } from "@/components/marketing/hero";
 import { PricingPanel } from "@/components/marketing/pricing-panel";
@@ -35,7 +35,7 @@ export default function HomePage() {
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
       <Hero />
-      <Facts />
+      <Features />
       <Story />
       <Routes />
       <Studio />
