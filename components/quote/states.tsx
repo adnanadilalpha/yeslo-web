@@ -1,4 +1,4 @@
-import { Flourish, Wordmark } from "@/components/brand/marks";
+import { LogoLockup } from "@/components/brand/marks";
 import { Shell } from "@/components/layout/shell";
 import Link from "next/link";
 
@@ -14,7 +14,7 @@ export function QuoteMissing() {
   return (
     <Shell className="py-20">
       <div className="mx-auto max-w-xl">
-        <Wordmark />
+        <LogoLockup />
         <p className="eyebrow mt-10 text-yes">Not found</p>
         <h1 className="display-sm mt-4">This link doesn’t match a quote.</h1>
         <p className="mt-5 text-lg leading-8 text-muted-foreground">
@@ -23,7 +23,6 @@ export function QuoteMissing() {
         <Link href="/" className="mt-8 inline-flex text-sm font-medium text-yes">
           Back to Yeslo
         </Link>
-        <Flourish className="mt-10 w-40" draw />
       </div>
     </Shell>
   );

@@ -1,6 +1,6 @@
 import { Footer } from "@/components/layout/footer";
 import { Header } from "@/components/layout/header";
-import { Flourish, Wordmark } from "@/components/brand/marks";
+import { LogoLockup } from "@/components/brand/marks";
 import { Shell } from "@/components/layout/shell";
 import { buttonVariants } from "@/components/ui/button";
 import { cn } from "cn";
@@ -15,7 +15,7 @@ export default function NotFound() {
       </Suspense>
       <main id="content" className="flex-1">
         <Shell className="py-24">
-          <Wordmark />
+          <LogoLockup />
           <p className="eyebrow mt-10 text-yes">404</p>
           <h1 className="display-sm mt-4 max-w-3xl">No page at this address.</h1>
           <p className="mt-5 max-w-xl text-lg leading-8 text-muted-foreground">
@@ -32,7 +32,6 @@ export default function NotFound() {
               Sample quote
             </Link>
           </div>
-          <Flourish className="mt-12 w-48" draw />
         </Shell>
       </main>
       <Footer />

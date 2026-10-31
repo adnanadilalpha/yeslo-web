@@ -1,4 +1,4 @@
-import { Flourish, Wordmark } from "@/components/brand/marks";
+import { LogoLockup } from "@/components/brand/marks";
 import { Shell } from "@/components/layout/shell";
 import { footerCompany, footerProduct, site } from "@/lib/site";
 import Link from "next/link";
@@ -8,11 +8,10 @@ export function Footer() {
     <footer className="border-t border-white/10 bg-ink text-paper">
       <Shell className="grid gap-12 py-16 md:grid-cols-[1.4fr_1fr_1fr]">
         <div>
-          <Wordmark className="text-paper" />
+          <LogoLockup tone="dark" className="h-10" />
           <p className="mt-5 max-w-sm text-sm leading-6 text-mist">
             One iOS app, two modes. Freelancers send proposals. Trades send estimates. The client opens a link and types their name.
           </p>
-          <Flourish className="mt-6 w-40 text-mint" draw />
         </div>
         <div>
           <p className="eyebrow text-mint">Product</p>

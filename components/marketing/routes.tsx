@@ -1,4 +1,4 @@
-import { Flourish } from "@/components/brand/marks";
+import { TradesLockup } from "@/components/brand/marks";
 import { Shell } from "@/components/layout/shell";
 import { QuoteDocument } from "@/components/quote/document";
 import { buttonVariants } from "@/components/ui/button";
@@ -41,7 +41,7 @@ export function Routes() {
             <Link href="/trades" className={cn(buttonVariants({ variant: "amber", size: "lg" }), "mt-6")}>
               For trades
             </Link>
-            <Flourish className="mt-8 w-32 text-amber" />
+            <TradesLockup tone="dark" className="mt-8 h-9" />
           </article>
         </div>
       </Shell>

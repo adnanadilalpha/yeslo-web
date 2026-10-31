@@ -1,6 +1,6 @@
 "use client";
 
-import { Wordmark } from "@/components/brand/marks";
+import { LogoLockup } from "@/components/brand/marks";
 import { Shell } from "@/components/layout/shell";
 import { ThemeToggle } from "@/components/layout/theme-toggle";
 import { buttonVariants } from "@/components/ui/button";
@@ -55,8 +55,9 @@ export function Header() {
       )}
     >
       <Shell className="flex h-16 items-center gap-6">
-        <Link href="/" aria-label="Yeslo, home" className="rounded-full">
-          <Wordmark />
+        <Link href="/" aria-label="Yeslo, home" className="rounded-sm">
+          <LogoLockup tone="light" className={cn("h-8 dark:hidden", onInk && "hidden")} />
+          <LogoLockup tone="dark" alt="" className={cn("hidden h-9 dark:block", onInk && "block")} />
         </Link>
         <nav aria-label="Primary" className="ml-auto hidden items-center gap-7 md:flex">
           {nav.map((item) => {

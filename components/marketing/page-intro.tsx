@@ -1,4 +1,3 @@
-import { Flourish } from "@/components/brand/marks";
 import { Shell } from "@/components/layout/shell";
 import type { ReactNode } from "react";
 
@@ -20,7 +19,6 @@ export function PageIntro({
         <p className={`eyebrow ${ink ? "text-amber" : "text-yes"}`}>{eyebrow}</p>
         <h1 className="display-sm mt-4 max-w-4xl">{title}</h1>
         <div className={`mt-6 max-w-2xl text-lg leading-8 ${ink ? "text-mist" : "text-muted-foreground"}`}>{children}</div>
-        <Flourish className={`mt-8 w-40 ${ink ? "text-amber" : ""}`} draw />
       </Shell>
     </section>
   );

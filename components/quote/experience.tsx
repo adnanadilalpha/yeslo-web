@@ -1,6 +1,5 @@
 "use client";
 
-import { Flourish } from "@/components/brand/marks";
 import { QuoteDocument } from "@/components/quote/document";
 import { Button } from "@/components/ui/button";
 import { Checkbox } from "@/components/ui/checkbox";
@@ -185,7 +184,6 @@ export function QuoteExperience({ model }: { model: PublicQuote }) {
             ) : (
               <p className="mt-4 text-sm leading-6 text-muted-foreground">{closedCopy(phase, model.quote.business.name)}</p>
             )}
-            {phase !== "expired" && phase !== "closed" ? <Flourish className="mt-6 w-32" draw /> : null}
             {model.source === "demo" && !open ? (
               <Button type="button" variant="outline" className="mt-6 h-11 rounded-full px-4" onClick={() => void resetDemo()} disabled={pending !== null}>
                 {pending === "reset" ? "Resetting…" : "Reset this sample"}
