@@ -3,6 +3,7 @@ import { Features } from "@/components/marketing/features";
 import { Faq } from "@/components/marketing/faq";
 import { Hero } from "@/components/marketing/hero";
 import { PricingPanel } from "@/components/marketing/pricing-panel";
+import { Reveal } from "@/components/marketing/reveal";
 import { Routes } from "@/components/marketing/routes";
 import { Story } from "@/components/marketing/story";
 import { Studio } from "@/components/marketing/studio";
@@ -40,26 +41,38 @@ export default function HomePage() {
       <Routes />
       <Studio />
       <Comparison />
-      <section className="pb-8">
+      <section className="bg-[#f7f4ee] py-24 dark:bg-background lg:py-28">
         <Shell>
-          <p className="eyebrow text-yes">Pricing</p>
-          <h2 className="display-sm mt-4 max-w-3xl">Three sends free. Then $9.99.</h2>
-          <div className="mt-10">
-            <PricingPanel />
-          </div>
+          <Reveal>
+            <p className="text-sm font-semibold text-yes">Pricing</p>
+            <h2 className="mt-4 font-heading text-[clamp(2.2rem,4.5vw,3.75rem)] leading-[1.02] font-bold tracking-[-0.045em]">
+              Three sends free. Then $9.99.
+            </h2>
+          </Reveal>
+          <Reveal delay={0.08}>
+            <div className="mt-12">
+              <PricingPanel />
+            </div>
+          </Reveal>
         </Shell>
       </section>
       <Faq />
-      <section id="join" className="bg-ink py-20 text-paper">
-        <Shell className="grid items-end gap-10 lg:grid-cols-2">
-          <div>
-            <p className="eyebrow text-mint">TestFlight</p>
-            <h2 className="display-sm mt-4">Coming soon to the App Store.</h2>
-            <p className="mt-5 max-w-md text-mist leading-7">
-              The beta is the way in. Leave an email and we’ll send a TestFlight invite when a seat is open. No fake store button.
-            </p>
-          </div>
-          <WaitlistForm source="home" />
+      <section id="join" className="bg-[#0a1210] py-24 text-white lg:py-28">
+        <Shell className="grid items-end gap-12 lg:grid-cols-2">
+          <Reveal>
+            <div>
+              <p className="text-sm font-semibold text-[#7dffa8]">TestFlight</p>
+              <h2 className="mt-4 font-heading text-[clamp(2.2rem,4.5vw,3.75rem)] leading-[1.02] font-bold tracking-[-0.045em]">
+                Coming soon to the App Store.
+              </h2>
+              <p className="mt-5 max-w-md leading-7 text-white/65">
+                The beta is the way in. Leave an email and we’ll send a TestFlight invite when a seat is open. No fake store button.
+              </p>
+            </div>
+          </Reveal>
+          <Reveal delay={0.08}>
+            <WaitlistForm source="home" />
+          </Reveal>
         </Shell>
       </section>
     </>

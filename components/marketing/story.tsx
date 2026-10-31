@@ -66,10 +66,13 @@ export function Story() {
   );
 
   return (
-    <section id="story" className="bg-ink text-paper">
+    <section id="story" className="relative overflow-hidden bg-ink text-paper">
       <div className="story-stack">
-        <Shell className="space-y-16 py-20">
-          <h2 className="display-sm max-w-3xl">Quote. Link. Yes. Invoice.</h2>
+        <Shell className="space-y-16 py-24">
+          <p className="text-sm font-semibold text-[#7dffa8]">The whole loop</p>
+          <h2 className="mt-4 font-heading text-[clamp(2.2rem,4.5vw,3.75rem)] leading-[1.02] font-bold tracking-[-0.045em]">
+            Quote. Link. <span className="ital-yes">Yes</span>. Invoice.
+          </h2>
           {storySteps.map((step, index) => (
             <article key={step.title}>
               <p className="font-mono text-sm text-[#3FC79A]">{step.index}</p>
@@ -87,7 +90,7 @@ export function Story() {
         </Shell>
       </div>
       <div ref={pinRef} className="story-pin">
-        <div className="flex h-[100dvh] items-center">
+        <div className="flex h-dvh items-center">
           <Shell className="grid w-full items-center gap-6 lg:grid-cols-[0.78fr_1.22fr]">
             <div className="relative z-10 bg-ink pl-7">
               <div className="absolute top-0 bottom-0 left-0 w-px bg-white/25" aria-hidden="true">
@@ -97,7 +100,7 @@ export function Story() {
                 {storySteps.map((step, index) => (
                   <li key={step.title} data-step={index} className={index === 0 ? "is-active" : undefined}>
                     <p className="font-mono text-xs text-[#3FC79A]">{step.index}</p>
-                    <h3 className="mt-1 text-2xl font-semibold tracking-[-0.04em]">{step.title}</h3>
+                    <h3 className="mt-1 font-heading text-2xl font-bold tracking-[-0.04em]">{step.title}</h3>
                     <p className="mt-1 max-w-xs text-sm leading-6 text-[#E6E9F2]">{step.body}</p>
                   </li>
                 ))}
@@ -114,9 +117,9 @@ export function Story() {
                 </div>
               </IPhone>
               <div className="share-pill">getyeslo.com/q/n0rth</div>
-              <article className="client-slab relative z-[1] w-[280px] overflow-hidden rounded-[28px] bg-[#F7F7F4] p-3.5 shadow-[0_28px_60px_-20px_rgba(0,0,0,0.45)]">
+              <article className="client-slab relative z-1 w-70 overflow-hidden rounded-[28px] bg-[#F7F7F4] p-3.5 shadow-[0_28px_60px_-20px_rgba(0,0,0,0.45)]">
                 <p className="px-1 pb-2 font-mono text-[10px] tracking-[0.12em] text-[#5B6172]">CLIENT · getyeslo.com/q/n0rth</p>
-                <div className="relative h-[560px] overflow-hidden rounded-2xl">
+                <div className="relative h-140 overflow-hidden rounded-2xl">
                   <div className="layer-wait h-full bg-[#F7F7F4] p-4">
                     <p className="font-mono text-[10px] tracking-[0.14em] text-[#5B6172]">Q-0142 · SENT</p>
                     <p className="mt-2 text-lg font-semibold text-[#111426]">Awaiting Sarah</p>

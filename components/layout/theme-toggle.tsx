@@ -30,7 +30,7 @@ export function ThemeToggle({ onInk = false }: { onInk?: boolean }) {
       variant="ghost"
       onClick={toggle}
       aria-label={dark ? "Switch to light appearance" : "Switch to dark appearance"}
-      className={`h-10 rounded-full px-3 font-mono text-[11px] tracking-[0.14em] uppercase ${onInk ? "text-paper hover:bg-white/10 hover:text-paper" : ""}`}
+      className={`h-10 rounded-full px-3 text-[11px] font-semibold tracking-[0.06em] uppercase ${onInk ? "text-paper hover:bg-white/10 hover:text-paper" : ""}`}
     >
       {dark ? "Light" : "Dark"}
     </Button>

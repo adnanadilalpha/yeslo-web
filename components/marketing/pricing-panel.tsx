@@ -31,9 +31,9 @@ export function PricingPanel() {
         ))}
       </div>
       <div className="mt-8 grid gap-4 lg:grid-cols-2">
-        <article className="rounded-[28px] border border-border p-7">
-          <p className="eyebrow">Free</p>
-          <p className="mt-4 text-5xl tracking-[-0.05em]">$0</p>
+        <article className="rounded-[2rem] glass-panel p-8">
+          <p className="eyebrow text-yes">Free</p>
+          <p className="mt-4 font-heading text-5xl font-bold tracking-tighter">$0</p>
           <p className="mt-2 text-muted-foreground">3 sent quotes a month. Both modes.</p>
           <ul className="mt-6 space-y-2 text-sm leading-6">
             <li>Item library on the phone</li>
@@ -45,11 +45,11 @@ export function PricingPanel() {
             Use it free in the beta
           </Link>
         </article>
-        <article className="rounded-[28px] bg-ink p-7 text-paper">
+        <article className="rounded-[2rem] bg-ink p-8 text-paper shadow-[0_30px_80px_-36px_rgb(7_17_14/55%)]">
           <p className="eyebrow text-mint">Pro</p>
-          <p className="mt-4 text-5xl tracking-[-0.05em]">
+          <p className="mt-4 font-heading text-5xl font-bold tracking-tighter">
             {pro.price}
-            <span className="ml-2 text-lg text-mist">{pro.cadence}</span>
+            <span className="ml-2 text-lg font-medium text-mist">{pro.cadence}</span>
           </p>
           <p className="mt-2 text-mist">{pro.note}</p>
           <ul className="mt-6 space-y-2 text-sm leading-6">

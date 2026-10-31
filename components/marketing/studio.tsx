@@ -68,11 +68,13 @@ export function Studio() {
   const total = summarize(lines, taxRate).totalCents;
 
   return (
-    <section id="studio" className="py-20 lg:py-28">
+    <section id="studio" className="py-24 lg:py-32">
       <Shell>
-        <p className="eyebrow text-yes">A live preview</p>
+        <p className="text-sm font-semibold text-yes">A live preview</p>
         <div className="mt-4 flex flex-col justify-between gap-6 lg:flex-row lg:items-end">
-          <h2 className="display-sm max-w-3xl">Write a quote. Watch the client view move.</h2>
+          <h2 className="font-heading text-[clamp(2.2rem,4.5vw,3.75rem)] leading-[1.02] font-bold tracking-[-0.045em] max-w-3xl">
+            Write a quote. Watch the client view move.
+          </h2>
           <div role="radiogroup" aria-label="Sample mode" className="flex rounded-full border border-border p-1">
             {(["freelancer", "trades"] as const).map((option) => (
               <button

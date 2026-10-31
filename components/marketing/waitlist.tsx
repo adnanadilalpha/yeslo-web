@@ -40,9 +40,9 @@ export function WaitlistForm({ defaultRoute = "freelancer", source = "web" }: { 
 
   if (status === "ok" || status === "exists") {
     return (
-      <div className="rounded-[28px] border border-white/15 bg-white/5 p-6 text-paper">
+      <div className="rounded-[2rem] border border-white/15 bg-white/5 p-7 text-paper backdrop-blur">
         <p className="eyebrow text-mint">You’re on the list</p>
-        <p className="mt-3 text-2xl tracking-[-0.04em]">
+        <p className="mt-3 font-heading text-2xl font-bold tracking-[-0.04em]">
           {status === "exists" ? "That email was already here." : "We’ll write when a TestFlight seat is open."}
         </p>
         <button type="button" className="mt-5 text-sm text-mint" onClick={() => setStatus("idle")}>
@@ -53,8 +53,8 @@ export function WaitlistForm({ defaultRoute = "freelancer", source = "web" }: { 
   }
 
   return (
-    <form onSubmit={onSubmit} className="rounded-[28px] border border-white/15 bg-white/5 p-6">
-      <div className="absolute -left-[9999px] h-0 overflow-hidden" aria-hidden="true">
+    <form onSubmit={onSubmit} className="rounded-[2rem] border border-white/15 bg-white/5 p-7 backdrop-blur">
+      <div className="absolute left-[-9999px] h-0 overflow-hidden" aria-hidden="true">
         <label>
           Website
           <input value={website} onChange={(event) => setWebsite(event.target.value)} tabIndex={-1} autoComplete="off" />
