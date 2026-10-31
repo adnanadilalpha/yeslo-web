@@ -2,9 +2,9 @@ import { Shell } from "@/components/layout/shell";
 
 export function Features() {
   return (
-    <section id="details" className="py-24 lg:py-32">
-      <Shell className="space-y-20">
-        <article className="grid items-end gap-10 lg:grid-cols-12">
+    <section id="details" className="py-14 lg:py-16">
+      <Shell className="space-y-14 lg:space-y-16">
+        <article className="grid items-center gap-8 lg:grid-cols-12">
           <div className="lg:col-span-4">
             <p className="font-mono text-xs tracking-[0.16em] text-[#5B6172]">01</p>
             <h2 className="mt-3 text-4xl font-semibold tracking-[-0.045em]">The number they are agreeing to.</h2>

@@ -1,6 +1,6 @@
 "use client";
 
-import { ApprovalScreen, IPhone, InvoiceScreen, QuoteScreen } from "@/components/marketing/devices";
+import { ApprovalScreen, IPhone, InvoiceScreen, MarkPaidScreen, QuoteScreen } from "@/components/marketing/devices";
 import { Shell } from "@/components/layout/shell";
 import { storySteps } from "@/lib/content";
 import { useGSAP } from "@gsap/react";
@@ -39,7 +39,6 @@ export function Story() {
           },
         });
         tl.addLabel("quote", 0);
-        tl.from(".story-phone .q-line", { y: 12, autoAlpha: 0, stagger: 0.08, duration: 0.25, ease: "back.out(1.4)" }, "quote");
         tl.addLabel("link", 0.45);
         tl.fromTo(".share-pill", { autoAlpha: 0, x: 0 }, { autoAlpha: 1, x: 160, duration: 0.4, ease: "power3.inOut" }, "link");
         tl.addLabel("yes", 1);
@@ -51,7 +50,15 @@ export function Story() {
         tl.addLabel("invoice", 1.65);
         tl.to(".layer-yes", { autoAlpha: 0, duration: 0.18 }, "invoice");
         tl.fromTo(".layer-invoice", { autoAlpha: 0 }, { autoAlpha: 1, duration: 0.22 }, "invoice+=0.18");
-        tl.from(".paid-stamp", { scale: 1.35, autoAlpha: 0, rotation: -18, duration: 0.28, ease: "back.out(1.6)" }, "invoice+=0.32");
+        tl.to(".phone-quote", { autoAlpha: 0, duration: 0.18 }, "invoice");
+        tl.fromTo(".phone-paid", { autoAlpha: 0 }, { autoAlpha: 1, duration: 0.22 }, "invoice+=0.18");
+        tl.fromTo(
+          ".paid-stamp",
+          { scale: 1.28, autoAlpha: 0, rotation: -16 },
+          { scale: 1, autoAlpha: 1, rotation: -8, duration: 0.28, ease: "back.out(1.6)" },
+          "invoice+=0.32",
+        );
+        tl.fromTo(".mark-paid", { scale: 1 }, { scale: 0.97, duration: 0.12, yoyo: true, repeat: 1 }, "invoice+=0.4");
       });
       return () => mm.revert();
     },
@@ -69,10 +76,10 @@ export function Story() {
               <h3 className="mt-2 text-3xl font-semibold tracking-[-0.04em]">{step.title}</h3>
               <p className="mt-2 max-w-md leading-7 text-mist">{step.body}</p>
               <div className="mt-6 flex justify-center">
-                <IPhone className="story-device">
+                <IPhone className="phone-full story-device">
                   {index === 0 || index === 1 ? <QuoteScreen /> : null}
                   {index === 2 ? <ApprovalScreen /> : null}
-                  {index === 3 ? <InvoiceScreen /> : null}
+                  {index === 3 ? <MarkPaidScreen /> : null}
                 </IPhone>
               </div>
             </article>
@@ -83,30 +90,45 @@ export function Story() {
         <div className="flex h-[100dvh] items-center">
           <Shell className="grid w-full items-center gap-6 lg:grid-cols-[0.78fr_1.22fr]">
             <div className="relative z-10 bg-ink pl-7">
-              <div className="absolute top-0 bottom-0 left-0 w-px bg-white/15" aria-hidden="true">
+              <div className="absolute top-0 bottom-0 left-0 w-px bg-white/25" aria-hidden="true">
                 <div className="story-progress absolute inset-0 origin-top bg-[#3FC79A]" />
               </div>
-              <ol className="space-y-7">
+              <ol className="space-y-6">
                 {storySteps.map((step, index) => (
                   <li key={step.title} data-step={index} className={index === 0 ? "is-active" : undefined}>
                     <p className="font-mono text-xs text-[#3FC79A]">{step.index}</p>
-                    <h3 className="mt-1 text-[28px] font-semibold tracking-[-0.04em]">{step.title}</h3>
-                    <p className="mt-1 max-w-xs text-sm leading-6 text-[#C5CAD8]">{step.body}</p>
+                    <h3 className="mt-1 text-2xl font-semibold tracking-[-0.04em]">{step.title}</h3>
+                    <p className="mt-1 max-w-xs text-sm leading-6 text-[#E6E9F2]">{step.body}</p>
                   </li>
                 ))}
               </ol>
             </div>
+            <div className="story-fit">
             <div className="story-stage">
               <IPhone className="story-phone">
-                <QuoteScreen />
+                <div className="phone-quote absolute inset-0">
+                  <QuoteScreen />
+                </div>
+                <div className="phone-paid absolute inset-0">
+                  <MarkPaidScreen />
+                </div>
               </IPhone>
               <div className="share-pill">getyeslo.com/q/n0rth</div>
-              <article className="client-slab relative z-[1] w-[270px] overflow-hidden rounded-[28px] bg-[#F7F7F4] p-3 shadow-[0_28px_60px_-20px_rgba(0,0,0,0.45)]">
+              <article className="client-slab relative z-[1] w-[280px] overflow-hidden rounded-[28px] bg-[#F7F7F4] p-3.5 shadow-[0_28px_60px_-20px_rgba(0,0,0,0.45)]">
                 <p className="px-1 pb-2 font-mono text-[10px] tracking-[0.12em] text-[#5B6172]">CLIENT · getyeslo.com/q/n0rth</p>
-                <div className="relative h-[500px] overflow-hidden rounded-2xl">
+                <div className="relative h-[560px] overflow-hidden rounded-2xl">
                   <div className="layer-wait h-full bg-[#F7F7F4] p-4">
-                    <p className="text-lg font-semibold text-[#111426]">Awaiting Sarah</p>
-                    <p className="mt-1 text-sm text-[#3E4558]">Brand identity sprint · $6,160.00</p>
+                    <p className="font-mono text-[10px] tracking-[0.14em] text-[#5B6172]">Q-0142 · SENT</p>
+                    <p className="mt-2 text-lg font-semibold text-[#111426]">Awaiting Sarah</p>
+                    <p className="mt-1 text-sm text-[#3E4558]">Brand identity sprint</p>
+                    <div className="mt-4 space-y-2 border-t border-[#111426]/10 pt-3 text-sm text-[#111426]">
+                      <p className="flex justify-between"><span>Workshop</span><span className="tabular-nums">$1,200</span></p>
+                      <p className="flex justify-between"><span>Identity system</span><span className="tabular-nums">$2,400</span></p>
+                      <p className="flex justify-between"><span>Art direction</span><span className="tabular-nums">$1,200</span></p>
+                      <p className="flex justify-between"><span>Guidelines</span><span className="tabular-nums">$800</span></p>
+                    </div>
+                    <p className="mt-3 flex justify-between border-t border-[#111426]/10 pt-3 text-sm"><span>Tax 10%</span><span className="tabular-nums">$560.00</span></p>
+                    <p className="mt-1 flex justify-between text-base font-semibold"><span>Total</span><span className="tabular-nums">$6,160.00</span></p>
                   </div>
                   <div className="layer-yes absolute inset-0 bg-[#F7F7F4]">
                     <ApprovalScreen />
@@ -116,6 +138,7 @@ export function Story() {
                   </div>
                 </div>
               </article>
+            </div>
             </div>
           </Shell>
         </div>

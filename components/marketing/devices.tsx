@@ -75,7 +75,7 @@ export function QuoteScreen({ mode = "freelancer" }: { mode?: "freelancer" | "tr
           <em className="block text-xs text-[#3E4558] not-italic">{trades ? "14 Elm Rd" : "Northwind Studio"}</em>
         </span>
       </div>
-      <span className="mt-2 inline-flex w-fit rounded-full bg-mint px-2 py-1 text-[10px] font-bold text-ink">Sent · awaiting yes</span>
+      <span className="mt-2 inline-flex w-fit rounded-full bg-mint px-2.5 py-1 text-xs font-bold text-ink">Sent · awaiting yes</span>
       <p className="ios-kicker">{trades ? "Estimate · E-0142" : "Proposal · Q-0142"}</p>
       <h3 className="ios-title">{trades ? "Kitchen refit" : "Brand identity sprint"}</h3>
       <ul className="ios-lines">
@@ -125,16 +125,43 @@ export function ApprovalScreen() {
   );
 }
 
-export function InvoiceScreen() {
+export function MarkPaidScreen() {
   return (
     <div className="ios-app">
-      <div className="flex items-start justify-between gap-3">
-        <div>
-          <p className="ios-kicker">Invoice · Q-0142</p>
-          <h3 className="ios-title">Northwind Studio</h3>
-          <p className="ios-sub">Sarah Okafor · Due 12 Dec 2026</p>
-        </div>
-        <div className="paid-stamp stamp shrink-0">Paid</div>
+      <div className="ios-nav">
+        <span className="text-[#12805C]">Invoices</span>
+        <LogoMark className="h-5" />
+        <span className="text-[#5B6172]">PDF</span>
+      </div>
+      <p className="ios-kicker">Invoice · Q-0142</p>
+      <h3 className="ios-title">Northwind Studio</h3>
+      <p className="ios-sub">Sarah Okafor · Due 12 Dec 2026</p>
+      <ul className="ios-lines">
+        <li><span><strong>Workshop</strong><em>1 day</em></span><b>$1,200</b></li>
+        <li><span><strong>Identity system</strong><em>1</em></span><b>$2,400</b></li>
+        <li><span><strong>Art direction</strong><em>8 hr</em></span><b>$1,200</b></li>
+        <li><span><strong>Guidelines</strong><em>12 pp</em></span><b>$800</b></li>
+      </ul>
+      <div className="ios-totals">
+        <p><span>Subtotal</span><span>$5,600.00</span></p>
+        <p><span>Tax 10%</span><span>$560.00</span></p>
+        <p className="ios-grand"><span>Total</span><span>$6,160.00</span></p>
+      </div>
+      <div className="mark-paid mt-3 rounded-2xl bg-[#0C5C42] py-3 text-center text-[16px] font-semibold text-white shadow-[inset_0_3px_0_rgb(0_0_0/28%)]">
+        Mark paid
+      </div>
+    </div>
+  );
+}
+
+export function InvoiceScreen() {
+  return (
+    <div className="ios-app relative">
+      <div className="paid-stamp stamp absolute top-1 right-1">Paid</div>
+      <div className="pr-16">
+        <p className="ios-kicker">Invoice · Q-0142</p>
+        <h3 className="ios-title">Northwind Studio</h3>
+        <p className="ios-sub">Sarah Okafor · Due 12 Dec 2026</p>
       </div>
       <ul className="ios-lines">
         <li><span><strong>Workshop</strong><em>1 day</em></span><b>$1,200</b></li>

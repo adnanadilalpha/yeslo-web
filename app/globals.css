@@ -273,12 +273,24 @@ html.dark {
 }
 
 [data-step] {
-  opacity: 0.42;
+  position: relative;
+  opacity: 0.74;
   transition: opacity 0.35s ease;
 }
 
 [data-step].is-active {
   opacity: 1;
+}
+
+[data-step].is-active::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: -1.75rem;
+  width: 2px;
+  border-radius: 2px;
+  background: #3fc79a;
 }
 
 .cursor-dot,
@@ -602,11 +614,70 @@ details summary::-webkit-details-marker {
   align-self: flex-end;
 }
 
-.hero-tilt {
-  transform: perspective(1400px) rotateY(-7deg) rotateX(4deg);
+.hero-cluster {
+  height: 600px;
+  width: 540px;
 }
 
-.hero-tilt .iphone-screen {
+.hero-phone-slot {
+  top: 46px;
+  left: 118px;
+  transform: scale(0.68);
+  transform-origin: top left;
+}
+
+.hero-client {
+  top: 18px;
+  left: 300px;
+  width: 236px;
+  transform: rotate(2deg);
+}
+
+.hero-push {
+  top: 176px;
+  left: -36px;
+}
+
+.hero-link {
+  position: absolute;
+  top: 6px;
+  left: 352px;
+  z-index: 3;
+  transform: translate(-28%, -80%);
+  border-radius: 999px;
+  background: white;
+  padding: 8px 12px;
+  color: #111426;
+  font-family: var(--font-mono), ui-monospace, monospace;
+  font-size: 12px;
+  box-shadow: 0 12px 28px -16px rgb(17 20 38 / 45%);
+}
+
+.hero-link::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  right: 100%;
+  width: 42px;
+  height: 1px;
+  background-image: repeating-linear-gradient(90deg, #12805c 0 4px, transparent 4px 8px);
+  background-size: 16px 1px;
+  animation: link-march 0.9s linear infinite;
+}
+
+@keyframes link-march {
+  to {
+    background-position: -16px 0;
+  }
+}
+
+.hero-tilt {
+  transform: perspective(1400px) rotateY(-7deg) rotateX(3deg);
+}
+
+.phone-full .iphone-screen,
+.hero-tilt .iphone-screen,
+.story-phone .iphone-screen {
   height: 710px;
 }
 
@@ -794,22 +865,27 @@ details summary::-webkit-details-marker {
   box-shadow: 0 16px 40px -18px rgb(0 0 0 / 55%);
 }
 
-.story-stage {
+.story-fit {
   position: relative;
+  height: 640px;
+}
+
+.story-stage {
+  position: absolute;
+  top: 0;
+  right: 0;
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  min-height: 600px;
+  gap: 28px;
+  transform: scale(0.82);
+  transform-origin: top right;
 }
 
 .story-phone {
-  width: 248px;
+  width: 300px;
   position: relative;
   z-index: 1;
-}
-
-.story-phone .iphone-screen {
-  height: 520px;
+  flex: none;
 }
 
 .client-slab {
@@ -839,13 +915,21 @@ details summary::-webkit-details-marker {
 
 .story-pin .layer-yes,
 .story-pin .layer-invoice,
-.story-pin .share-pill {
+.story-pin .share-pill,
+.story-pin .phone-paid {
   opacity: 0;
 }
 
+.client-slab .paid-stamp {
+  top: 10px;
+  right: 10px;
+  width: 5.25rem;
+  height: 5.25rem;
+}
+
 .share-pill {
-  left: 34%;
-  top: 16%;
+  left: 262px;
+  top: 9%;
 }
 
 .stamp,
@@ -921,6 +1005,10 @@ details summary::-webkit-details-marker {
 @media (prefers-reduced-motion: reduce) {
   .hero-tilt {
     transform: none;
+  }
+
+  .hero-link::before {
+    animation: none;
   }
 }
 

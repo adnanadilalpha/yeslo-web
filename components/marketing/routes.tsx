@@ -19,13 +19,13 @@ export function Routes() {
             For freelancers
           </Link>
         </div>
-        <IPhone className="mx-auto">
+        <IPhone className="phone-full mx-auto">
           <QuoteScreen />
         </IPhone>
       </Shell>
       <div className="bg-ink text-paper">
         <Shell className="grid items-center gap-16 py-28 lg:grid-cols-2 lg:py-36">
-          <IPhone className="mx-auto lg:order-2">
+          <IPhone className="phone-full mx-auto lg:order-2">
             <QuoteScreen mode="trades" />
           </IPhone>
           <div>
