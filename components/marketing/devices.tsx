@@ -46,9 +46,10 @@ export function IPhone({
 }
 
 const identity = [
-  ["Workshop", "1 day", "$1,200"],
-  ["Identity system", "1", "$3,200"],
-  ["Art direction", "8 hr", "$1,400"],
+  ["Workshop", "1 day · $1,200", "$1,200"],
+  ["Identity system", "1 project", "$2,400"],
+  ["Art direction", "8 hr · $150", "$1,200"],
+  ["Guidelines", "12 pp", "$800"],
 ];
 
 const kitchen = [
@@ -67,9 +68,16 @@ export function QuoteScreen({ mode = "freelancer" }: { mode?: "freelancer" | "tr
         <LogoMark className="h-5" />
         <span className="text-[#12805C]">Send</span>
       </div>
+      <div className="mt-3 flex items-center gap-2">
+        <span className="grid size-9 shrink-0 place-items-center rounded-full bg-mint text-[11px] font-bold text-ink" aria-hidden="true">{trades ? "PS" : "SO"}</span>
+        <span className="min-w-0">
+          <strong className="block text-[15px] leading-tight whitespace-nowrap">{trades ? "Priya Shah" : "Sarah Okafor"}</strong>
+          <em className="block text-xs text-[#3E4558] not-italic">{trades ? "14 Elm Rd" : "Northwind Studio"}</em>
+        </span>
+      </div>
+      <span className="mt-2 inline-flex w-fit rounded-full bg-mint px-2 py-1 text-[10px] font-bold text-ink">Sent · awaiting yes</span>
       <p className="ios-kicker">{trades ? "Estimate · E-0142" : "Proposal · Q-0142"}</p>
       <h3 className="ios-title">{trades ? "Kitchen refit" : "Brand identity sprint"}</h3>
-      <p className="ios-sub">{trades ? "14 Elm Rd · Priya Shah" : "Sarah Okafor · Northwind Studio"}</p>
       <ul className="ios-lines">
         {rows.map(([name, qty, price]) => (
           <li key={name} className="q-line">
@@ -81,22 +89,22 @@ export function QuoteScreen({ mode = "freelancer" }: { mode?: "freelancer" | "tr
           </li>
         ))}
       </ul>
+      <p className="ios-note">{trades ? "Includes labour and listed materials. Colour confirmed on site." : "Two rounds of revisions. Work starts the Monday after approval."}</p>
       <div className="ios-totals">
         <p>
           <span>Subtotal</span>
-          <span>{trades ? "£4,050.00" : "$5,800.00"}</span>
+          <span>{trades ? "£4,050.00" : "$5,600.00"}</span>
         </p>
-        {trades ? (
-          <p>
-            <span>VAT 20%</span>
-            <span>£810.00</span>
-          </p>
-        ) : null}
+        <p>
+          <span>{trades ? "VAT 20%" : "Tax 10%"}</span>
+          <span>{trades ? "£810.00" : "$560.00"}</span>
+        </p>
         <p className="ios-grand">
           <span>Total</span>
-          <span>{trades ? "£4,860.00" : "$5,800.00"}</span>
+          <span>{trades ? "£4,860.00" : "$6,160.00"}</span>
         </p>
       </div>
+      <div className="mt-3 rounded-2xl bg-[#12805C] py-3 text-center text-[16px] font-semibold text-white">Send link</div>
     </div>
   );
 }
@@ -120,12 +128,25 @@ export function ApprovalScreen() {
 export function InvoiceScreen() {
   return (
     <div className="ios-app">
-      <p className="ios-kicker">Invoice · Q-0142</p>
-      <h3 className="ios-title">Northwind Studio</h3>
-      <p className="ios-due">Due 12 Dec 2026</p>
-      <p className="ios-amount">$5,800.00</p>
-      <p className="ios-sub">Same lines as the approved proposal.</p>
-      <div className="paid-stamp stamp">Paid</div>
+      <div className="flex items-start justify-between gap-3">
+        <div>
+          <p className="ios-kicker">Invoice · Q-0142</p>
+          <h3 className="ios-title">Northwind Studio</h3>
+          <p className="ios-sub">Sarah Okafor · Due 12 Dec 2026</p>
+        </div>
+        <div className="paid-stamp stamp shrink-0">Paid</div>
+      </div>
+      <ul className="ios-lines">
+        <li><span><strong>Workshop</strong><em>1 day</em></span><b>$1,200</b></li>
+        <li><span><strong>Identity system</strong><em>1</em></span><b>$2,400</b></li>
+        <li><span><strong>Art direction</strong><em>8 hr</em></span><b>$1,200</b></li>
+        <li><span><strong>Guidelines</strong><em>12 pp</em></span><b>$800</b></li>
+      </ul>
+      <div className="ios-totals">
+        <p><span>Subtotal</span><span>$5,600.00</span></p>
+        <p><span>Tax 10%</span><span>$560.00</span></p>
+        <p className="ios-grand"><span>Total</span><span>$6,160.00</span></p>
+      </div>
     </div>
   );
 }

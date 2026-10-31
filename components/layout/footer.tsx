@@ -5,8 +5,11 @@ import Link from "next/link";
 
 export function Footer() {
   return (
-    <footer className="border-t border-white/10 bg-ink text-paper">
-      <Shell className="grid gap-12 py-16 md:grid-cols-[1.4fr_1fr_1fr]">
+    <footer className="bg-ink text-paper">
+      <Shell className="border-t border-white/10 pt-16">
+        <p className="max-w-xl text-3xl font-semibold tracking-[-0.04em] text-paper sm:text-4xl">Send a quote. Get a yes.</p>
+      </Shell>
+      <Shell className="grid gap-12 py-14 md:grid-cols-[1.4fr_1fr_1fr]">
         <div>
           <LogoLockup tone="dark" className="h-10" />
           <p className="mt-5 max-w-sm text-sm leading-6 text-mist">
