@@ -52,12 +52,20 @@ The iOS app should subscribe to `quote_events` for push handling. The migration 
 
 ## Deploy on Vercel
 
-1. Import the Git repository. Framework preset: Next.js. Node 22.
-2. Set the four environment variables above. Use the production URL for `NEXT_PUBLIC_SITE_URL` (the Vercel domain now, getyeslo.com later) and redeploy once so share links and the sitemap match it.
-3. Apply the SQL migration in Supabase before you send a real quote.
-4. Run `npm run seed` from a machine that has the service role key if you want the Harbor Studio token on that project.
+1. In Vercel, choose **Add New → Project** and import the GitHub repository `adnanadilalpha/yeslo-web`. Framework preset: Next.js. Node 22. Build command: `npm run build`. Leave the output directory empty.
+2. Add these environment variables for Production (and Preview, if you want preview links to work):
 
-Build command: `npm run build`. No extra output directory.
+```bash
+NEXT_PUBLIC_SITE_URL=https://your-project.vercel.app
+NEXT_PUBLIC_SUPABASE_URL=https://kcyfdaqllqjgeexcqzct.supabase.co
+NEXT_PUBLIC_SUPABASE_ANON_KEY=
+SUPABASE_SERVICE_ROLE_KEY=
+```
+
+`NEXT_PUBLIC_SUPABASE_ANON_KEY` is the publishable anon key from Supabase → Project Settings → API. `SUPABASE_SERVICE_ROLE_KEY` is the service role key on that same page. Do not prefix the service role key with `NEXT_PUBLIC_`. After the first deploy, set `NEXT_PUBLIC_SITE_URL` to the real Vercel domain (later `https://getyeslo.com`) and redeploy so share links and the sitemap match it.
+
+3. In the Supabase SQL editor, run `supabase/migrations/20261031140646_yeslo_init.sql` before anyone sends a real quote.
+4. From a machine that has the service role key in `.env.local`, run `npm run seed`. That creates the live sample at `/q/seed-harbor-studio`. Running it again is a no-op.
 
 ## Checks
 
